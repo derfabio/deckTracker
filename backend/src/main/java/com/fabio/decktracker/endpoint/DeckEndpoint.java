@@ -1,16 +1,14 @@
-package com.fabio.decktracker.service.endpoint;
+package com.fabio.decktracker.endpoint;
 
 import com.fabio.decktracker.entity.deck.Deck;
 import com.fabio.decktracker.service.DeckService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/decks")
 public class DeckEndpoint {
@@ -23,6 +21,7 @@ public class DeckEndpoint {
 
     @GetMapping(value = "/all")
     public List getAllDecks() {
+        System.out.println(deckService.getAllDecks()+"from the endpoint");
         return deckService.getAllDecks();
     }
 
