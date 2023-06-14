@@ -23,7 +23,6 @@ public class Initialization {
         return args -> {
             Deck redDeckWins = new Deck("Red Deck Wins", Format.PAUPER);
             Deck lathril = new Deck("Golgari Lathril Elves", Format.COMMANDER);
-            Deck soldiers = new Deck("Azorius Soldiers", Format.STANDARD)
             DeckService service = new DeckService(deckRepository);
             DeckEndpoint endpoint = new DeckEndpoint(service);
 
