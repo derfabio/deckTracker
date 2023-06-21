@@ -1,6 +1,9 @@
 package com.fabio.decktracker.entity.card;
 
+import com.fabio.decktracker.entity.deck.Format;
 import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "card")
@@ -12,4 +15,7 @@ public abstract class Card {
     private int manaCost;
     private CardType cardType;
     private String expansion;
+    private Format format;
+    private Set<CardColor> colors;
+    private Rarity rarity;
 }

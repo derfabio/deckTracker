@@ -2,7 +2,6 @@ package com.fabio.decktracker.endpoint;
 
 import com.fabio.decktracker.entity.deck.Deck;
 import com.fabio.decktracker.service.DeckService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,14 +13,12 @@ import java.util.Optional;
 public class DeckEndpoint {
     private final DeckService deckService;
 
-    @Autowired
     public DeckEndpoint(DeckService deckService) {
         this.deckService = deckService;
     }
 
     @GetMapping(value = "/all")
-    public List getAllDecks() {
-        System.out.println(deckService.getAllDecks()+"from the endpoint");
+    public List<Deck> getAllDecks() {
         return deckService.getAllDecks();
     }
 
@@ -34,4 +31,11 @@ public class DeckEndpoint {
     public Optional<Deck> getDeckByName(@PathVariable String name) {
         return deckService.getDeckByName(name);
     }
+
+    @PostMapping(value = "/newDeck")
+    public String saveDeck(@RequestBody Deck deck) {
+        deckService.saveDeck(deck);
+        return "{\"success\":1}";
+    }
 }
+

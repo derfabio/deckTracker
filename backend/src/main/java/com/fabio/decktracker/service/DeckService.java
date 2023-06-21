@@ -15,7 +15,7 @@ public class DeckService {
         this.deckRepository = deckRepository;
     }
 
-    public List getAllDecks() {
+    public List<Deck> getAllDecks() {
         System.out.println(deckRepository.findAll()+"from the service");
         return deckRepository.findAll();
     }
@@ -26,5 +26,9 @@ public class DeckService {
 
     public Optional<Deck> getDeckById(Long id) {
         return deckRepository.findDeckById(id);
+    }
+
+    public void saveDeck(Deck deck) {
+        deckRepository.save(deck);
     }
 }
